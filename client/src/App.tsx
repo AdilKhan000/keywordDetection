@@ -27,7 +27,14 @@ function App() {
       setOutputMessage(response.data.message);
     } catch (error) {
       setIsSuccess(false);
-      setOutputMessage("File upload failed!");
+      if (
+        (error as any).response &&
+        typeof (error as any).response.data.message === "string"
+      ) {
+        setOutputMessage((error as any).response.data.message);
+      } else {
+        setOutputMessage("File upload failed!");
+      }
     }
   };
 

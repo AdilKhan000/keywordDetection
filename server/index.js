@@ -39,11 +39,12 @@ app.post("/upload", upload.single("file"), async (req, res) => {
     return res.status(200).json({ message: response.data.message });
   } catch (error) {
     console.error("Error forwarding file to Flask server:", error.message);
-    return res.status(500).json({ message: "Error forwarding file to Flask server" });
+    const errorMessage = error.response.data.message;
+    return res.status(500).json({ message: errorMessage });
   }
 });
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
