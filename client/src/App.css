@@ -1,0 +1,7 @@
+.d-flex.flex-column.align-items-center.mt-5 {
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
